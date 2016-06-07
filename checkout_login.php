@@ -577,78 +577,31 @@ $lift_row=0;
 									<td colspan="3"><br>
 										<table style="width:100%;" border="0">
 											<tr>
-												<td colspan="2"><b>billing information</b></td>
+												<td colspan="2"><b>shipping information</b></td>
 											</tr>
 											<tr>
 												<td>first name</td>
-												<td><input type="text" size="55" name="billing_first_name"></td>
+												<td><input type="text" size="55" name="first_name" id="fname"></td>
 											</tr>
 											<tr>
 												<td>last name</td>
-												<td><input type="text" size="55" name="billing_last_name"></td>
+												<td><input type="text" size="55" name="last_name" id="lname"></td>
 											</tr>
 											<tr>
 												<td>street address 1</td>
-												<td><input type="text" size="55" name="billing_street_address_one"></td>
+												<td><input type="text" size="55" name="street_address_one" id="street1"></td>
 											</tr>
 											<tr>
 												<td>street address 2</td>
-												<td><input type="text" size="55" name="billing_street_address_two"></td>
+												<td><input type="text" size="55" name="street_address_two" id="street2"></td>
 											</tr>
 											<tr>
 												<td>city</td>
-												<td><input type="text" size="55" name="billing_city"></td>
+												<td><input type="text" size="55" name="city" id="city"></td>
 											</tr>
 											<tr>
 												<td>state</td>
-												<td><select name="billing_state" style="width:379px;">
-												<option></option>
-												<?php 
-												$select_state_billing=state_list();
-												foreach($select_state_billing as $state_billing)
-												{
-												?>
-													<option><?php echo $state_billing['abbreviation'];?></option>
-												<?php
-												}
-												?>
-												</select>											
-												</td>
-											</tr>
-											<tr>
-												<td>zip code</td>
-												<td><input type="text" size="55" name="billing_zip"></td>
-											</tr>
-											<tr>
-												<td>cell phone</td>
-												<td><input type="text" size="55" name="cell_phone"></td>
-											</tr>
-											<tr>
-												<td colspan="2"><b>shipping information</b> &nbsp; if shipping info is the same as billing, click here...</td>
-											</tr>
-											<tr>
-												<td>first name</td>
-												<td><input type="text" size="55" name="first_name"></td>
-											</tr>
-											<tr>
-												<td>last name</td>
-												<td><input type="text" size="55" name="last_name"></td>
-											</tr>
-											<tr>
-												<td>street address 1</td>
-												<td><input type="text" size="55" name="street_address_one"></td>
-											</tr>
-											<tr>
-												<td>street address 2</td>
-												<td><input type="text" size="55" name="street_address_two"></td>
-											</tr>
-											<tr>
-												<td>city</td>
-												<td><input type="text" size="55" name="city"></td>
-											</tr>
-											<tr>
-												<td>state</td>
-												<td><select name="state" style="width:379px;">
+												<td><select name="state" style="width:379px;" id="state">
 												<option></option>
 												<?php 
 												$select_state=state_list();
@@ -664,7 +617,54 @@ $lift_row=0;
 											</tr>
 											<tr>
 												<td>zip code</td>
-												<td><input type="text" size="55" name="zip"></td>
+												<td><input type="text" size="55" name="zip" id="zip"></td>
+											</tr>
+												<tr>
+												<td>cell phone</td>
+												<td><input type="text" size="55" name="cell_phone"></td>
+											</tr>
+											<tr>
+												<td colspan="2"><b>billing information</b> &nbsp; if billing info is the same as shipping, check here...&nbsp;<input type="checkbox" id="bill_same"></td>
+											</tr>
+											<tr>
+												<td>first name</td>
+												<td><input type="text" size="55" name="billing_first_name" id="bill_fname"></td>
+											</tr>
+											<tr>
+												<td>last name</td>
+												<td><input type="text" size="55" name="billing_last_name" id="bill_lname"></td>
+											</tr>
+											<tr>
+												<td>street address 1</td>
+												<td><input type="text" size="55" name="billing_street_address_one" id="bill_street1"></td>
+											</tr>
+											<tr>
+												<td>street address 2</td>
+												<td><input type="text" size="55" name="billing_street_address_two" id="bill_street2"></td>
+											</tr>
+											<tr>
+												<td>city</td>
+												<td><input type="text" size="55" name="billing_city" id="bill_city"></td>
+											</tr>
+											<tr>
+												<td>state</td>
+												<td><select name="billing_state" style="width:379px;" id="bill_state">
+												<option></option>
+												<?php 
+												$select_state_billing=state_list();
+												foreach($select_state_billing as $state_billing)
+												{
+												?>
+													<option><?php echo $state_billing['abbreviation'];?></option>
+												<?php
+												}
+												?>
+												</select>											
+												</td>
+											</tr>
+											<tr>
+												<td>zip code</td>
+												<td><input type="text" size="55" name="billing_zip" id="bill_zip"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><b>login information</b></td>
@@ -712,6 +712,31 @@ $lift_row=0;
 		$('.show_hide').click(function(e){
 		e.preventDefault();
 		$(this).parents('tr').next(".current_cart_features").toggle("slow");
+		});
+		
+		 $('#bill_same').click(function(){
+ 	
+		   var _chk = $('#bill_same').is(':checked');
+		 	  if ( _chk == true ) { 
+
+			  //set inputs
+				$('#bill_fname').val( $('#fname').val() );
+				$('#bill_lname').val( $('#lname').val() );
+				$('#bill_street1').val( $('#street1').val() );
+				$('#bill_street2').val( $('#street2').val() );
+				$('#bill_city').val( $('#city').val() );
+				$('#bill_state').val( $('#state').val() );
+				$('#bill_zip').val( $('#zip').val() );
+			  }else{
+				  //Clear inputs
+				$('#bill_fname').val(' ');
+				$('#bill_lname').val(' ');
+				$('#bill_street1').val(' ');
+				$('#bill_street2').val(' ');
+				$('#bill_city').val(' ');
+				$('#bill_state').val(' ');
+				$('#bill_zip').val(' ');
+			 }
 		});
 	});
 	
