@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>[TITLE]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+[META]
+<script language="JavaScript" src="assets/templates/common/js/utilities.js" type="text/JavaScript"></script>
+<LINK REL="StyleSheet" HREF="assets/templates/[template]/css/[stylesheet]" TYPE="text/css" MEDIA="screen">
+<LINK REL="StyleSheet" HREF="assets/templates/common/js/tabs.css" TYPE="text/css" MEDIA="screen">
+<!--START: FRAME_RSSFEEDS-->
+<link rel="alternate" type="application/rss+xml" title="Featured Items (RSS 2.0)" href="[store_url]/rss.asp?type=home" />
+<link rel="alternate" type="application/rss+xml" title="Products On Sale (RSS 2.0)" href="[store_url]/rss.asp?type=onsale" />
+<link rel="alternate" type="application/rss+xml" title="New Releases (RSS 2.0)" href="[store_url]/rss.asp?type=newreleases" />
+<link rel="alternate" type="application/rss+xml" title="Best Sellers (RSS 2.0)" href="[store_url]/rss.asp?type=bestsellers" />
+<link rel="alternate" type="application/rss+xml" title="Latest Blog Posts (RSS 2.0)" href="[store_url]/rss.asp?type=blog" />
+<!--END: FRAME_RSSFEEDS-->
+<!--START: quicksearch-->
+<script type="text/javascript" src="assets/templates/common/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="assets/templates/common/quicksearch/jquery.quicksearch.js"></script>
+<link rel="stylesheet" href="assets/templates/common/quicksearch/quicksearch.css">
+<script type="text/javascript">
+jQuery(function() {
+                jQuery('#searchlight').searchlight('/search_quick.asp');
+            });
+</script>
+<!--END: quicksearch-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31722328-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Code for All Visits Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1042253609;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "0efhCJfa5QIQqY7-8AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1042253609/?label=0efhCJfa5QIQqY7-8AM&guid=ON&script=0"/>
+</div>
+</noscript>
+
+</head><body>
+<center>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" style="background: url(assets/templates/[template]/images/bg.png) repeat-x bottom center;"><table width="[screenwidth]" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td height="118" style="background: url(assets/templates/[template]/images/top_bg.png) no-repeat bottom center;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td nowrap="nowrap" style="padding: 0px 0px 0px 23px;" valign="top"><!--START: global_header-->
+                    <table border="0" cellspacing="0" cellpadding="1">
+                      <tr>
+                        <td class="store-name">[storename]</td>
+                      </tr>
+                      <tr>
+                        <td class="store-slogan" align="right">[storeslogan]</td>
+                      </tr>
+                    </table>
+                    <!--END: global_header--></td>
+                  <td style="padding: 0px 25px 0px 0px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td align="right"><table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td><!--START: FRAME_MENU-->
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <tr>
+                                    <!--START: menuitems_view-->
+                                    <!--START: TOP_LINK_FORMAT-->
+                                    <td nowrap="nowrap" class="icon"><a href="infopage.asp?page=[link_id]" class="menu" target="[link_target]">[link_name]</a>  |  </td>
+                                    <!--END: TOP_LINK_FORMAT-->
+                                    <!--END: menuitems_view-->
+                                  </tr>
+                                </table>
+                                <!--END: FRAME_MENU--></td>
+                              <td><a href="view_cart.asp"><img src="assets/templates/[template]/images/shop-cart.png"></a></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td height="30" align="right"><table cellspacing="0" cellpadding="2" border="0">
+                            <tr>
+                              <!--START: username-->
+                              <td class="menu-text" align="center"> [account_greeting] [username]  <a href="logout.asp" class="link">Log Out</a></td>
+                              <!--END: username-->
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td height="30" align="right"><!--START: FRAME_SEARCH-->
+                          <table cellspacing="0" cellpadding="2" border="0">
+                            <form name="searchForm" method="get" action="search.asp" STYLE="margin: 0px; padding: 0px;">
+                              <tr>
+                                <td><input name="keyword" id="searchlight" type="text" class="search-text" onFocus="javascript:if (document.searchForm.keyword.value=='search by keyword') {document.searchForm.keyword.value='';};"  onBlur="if(this.value.length == 0) this.value = 'search by keyword'" value="search by keyword" size="35" style="height: 21px; padding: 3px 0px 0px 3px;"></td>
+                                <td><input  type="image" src="assets/templates/[template]/images/search_btn.png" name="search" value="GO"></td>
+                              </tr>
+                            </form>
+                          </table>
+                          <!--END: FRAME_SEARCH--></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <!--START: LEFT BAR-->
+                  <td width="186" valign="top" style="padding: 0px 6px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-topL.png" width="10" height="10"></td>
+                              <td style="background: url(assets/templates/[template]/images/frame-topM.png) repeat-x;"><img src="assets/templates/common/images/spacer.gif" width="1" height="8"></td>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-topR.png" width="10" height="10"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td valign="top" class="frame frame-ht"><div class="column" id="column1">
+                            <!--START: LEFT_BAR_BLOCKS--><!--START: FRAME_MANUFACTURER-->
+                            <TABLE width="186" cellspacing="0" cellpadding="0" border="0">
+                              <form name="mfg" id="mfg" method="get" action="search_groups.asp" STYLE="margin: 0px; padding: 0px;">
+                                <tr>
+                                  <td class="menu-headers">[frame_manufacturer]</td>
+                                </tr>
+                                <!--START: manufacturer_format-->
+                                <tr>
+                                  <td height="24" style="padding: 0px 0px 0px 9px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="16"><img src="assets/templates/[template]/images/li.png"></td>
+                                        <td><a href="search_groups.asp?manf=[mfgid]" class="cat">[manufacturer]</a></td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                                <tr>
+                                  <td align="center"><img src="assets/templates/[template]/images/cat-div.png" width="170" height="1"></td>
+                                </tr>
+                                <!--END: manufacturer_format-->
+                                <!--
+                        <tr>
+                          <td align="center" valign="middle" height="50"><select name="manf" onChange="this.form.submit();" ID="Select1"  class="txtBoxStyle" style="width:140px;">
+                              <option value=0 selected class="txtBoxStyle">Manufacturer</option>
+                              <!-START: manufacturer_format->
+                              <option value=[mfgid] class="txtBoxStyle">[manufacturer]</option>
+                              <!-END: manufacturer_format->
+                            </select></td>
+                        </tr>
+                        -->
+                              </form>
+                            </TABLE>
+                            <div><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></div>
+                            <!--END: FRAME_MANUFACTURER--><!--START: FRAME_BYPRICE-->
+                            <TABLE width="186" cellspacing="0" cellpadding="0" border="0">
+                              <tr>
+                                <td class="menu-headers">[frame_byprice]</td>
+                              </tr>
+                              <!--START: byprice_format-->
+                              <tr>
+                                <td height="24" style="padding: 0px 0px 0px 9px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="16"><img src="assets/templates/[template]/images/li.png"></td>
+                                      <td><a href="search_groups.asp?keyword=[id]&byprice=[id]" class="cat">[title]</a></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><img src="assets/templates/[template]/images/cat-div.png" width="170" height="1"></td>
+                              </tr>
+                              <!--END: byprice_format-->
+                            </TABLE>
+                            <div><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></div>
+                            <!--END: FRAME_BYPRICE--><!--START: FRAME_CATEGORY-->
+                            <table width="186" cellspacing="0" cellpadding="0" border="0">
+                              <tr>
+                                <td class="menu-headers">[frame_categories]</td>
+                              </tr>
+                              <!--START: CATEGORIES-->
+                              <!--START: CATEGORY_FORMAT-->
+                              <tr>
+                                <td height="26" style="padding: 0px 0px 0px 9px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="16"><img src="assets/templates/[template]/images/li.png"></td>
+                                      <td><a href="view_category.asp?cat=CATID" class="cat">CATEGORY</a></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><img src="assets/templates/[template]/images/cat-div.png" width="170" height="1"></td>
+                              </tr>
+                              <!--END: CATEGORY_FORMAT-->
+                              <!--START: SUB_CATEGORY_FORMAT-->
+                              <tr>
+                                <td style="padding: 5px 0px 0px 28px;"><a href="view_category.asp?cat=CATID" class="subcat">CATEGORY</a></td>
+                              </tr>
+                              <!--END: SUB_CATEGORY_FORMAT-->
+                              <!--END: CATEGORIES-->
+                            </table>
+                            <div><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></div>
+                            <!--END: FRAME_CATEGORY--><!--START: FRAME_MAILLIST-->
+                            <table width="186" cellspacing="0" cellpadding="0" border="0">
+                              <form method="post" name="mailing" action="mailing_list.asp?action=add" onSubmit="return mailing_list();" STYLE="margin: 0px; padding: 0px;">
+                                <tr>
+                                  <td colspan="2" class="menu-headers">[frame_mailinglist]</td>
+                                </tr>
+                                <tr>
+                                  <td class="menu-text" colspan="2" style="padding: 10px 5px 10px 12px;">[mailinglist_text]</td>
+                                </tr>
+                                <tr>
+                                  <td width="75%" style="padding: 5px 0px 5px 12px;"><input name="email" type="text" class="search-text" value="enter email" size="22" onFocus="javascript:if (document.mailing.email.value=='enter email') {document.mailing.email.value='';};"  onBlur="if(this.value.length == 0) this.value = 'enter email'"></td>
+                                  <td width="25%" align="left"><input type="image" src="assets/templates/[template]/images/go_btn.png" name="www" value="[mailinglist_button]"></td>
+                                </tr>
+                                <tr>
+                                  <td class="menu-text" colspan="2" align="left" style="padding: 0px 0px 0px 12px;"><input type="radio" name="subscribe" value="1" checked>
+                                    [mailinglist_subscribe]</td>
+                                </tr>
+                                <tr>
+                                  <td class="menu-text" colspan="2" align="left" style="padding: 0px 0px 0px 12px;"><input type="radio" name="subscribe" value="0">
+                                    [mailinglist_unsubscribe]</td>
+                                </tr>
+                              </form>
+                            </table>
+                            <div><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></div>
+                            <!--END: FRAME_MAILLIST--><!--START: LEFT_BANNER-->
+                            <table width="100%"  cellspacing="0" cellpadding="4" border="0">
+                              <tr>
+                                <td align="center">[LEFT_BANNER]</td>
+                              </tr>
+                            </table>
+                            <!--END: LEFT_BANNER--><!--END: LEFT_BAR_BLOCKS-->
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-baseL.png" width="10" height="10"></td>
+                              <td style="background: url(assets/templates/[template]/images/frame-baseM.png) repeat-x;"><img src="assets/templates/common/images/spacer.gif" width="1" height="10"></td>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-baseR.png" width="10" height="10"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                  <!--END: LEFT BAR-->
+                  <!-- middle content starts here-->
+                  <td valign="top" width="100%" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="10"><img src="assets/templates/[template]/images/mid-topL.png" width="10" height="10"></td>
+                        <td bgcolor="#FFFFFF"><img src="assets/templates/common/images/spacer.gif" width="10" height="10"></td>
+                        <td height="10"><img src="assets/templates/[template]/images/mid-topR.png" width="10" height="10"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="assets/templates/common/images/spacer.gif" width="10" height="10"></td>
+                        <td align="center" valign="top" class="data frame-ht">MIDDLE</td>
+                        <td bgcolor="#FFFFFF"><img src="assets/templates/common/images/spacer.gif" width="10" height="10"></td>
+                      </tr>
+                      <tr>
+                        <td height="10"><img src="assets/templates/[template]/images/mid-baseL.png" width="10" height="10"></td>
+                        <td bgcolor="#FFFFFF"><img src="assets/templates/common/images/spacer.gif" width="10" height="10"></td>
+                        <td width="10"><img src="assets/templates/[template]/images/mid-baseR.png" width="10" height="10"></td>
+                      </tr>
+                    </table></td>
+                  <!--middle content ends here-->
+                  <!--START: RIGHT BAR-->
+                  <td valign="top" width="186" style="padding: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-topL.png" width="10" height="10"></td>
+                              <td style="background: url(assets/templates/[template]/images/frame-topM.png) repeat-x;"><img src="assets/templates/common/images/spacer.gif" width="1" height="10"></td>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-topR.png" width="10" height="10"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td valign="top" class="frame frame-ht"><div class="column" id="column2">
+                            <!--START: RIGHT_BAR_BLOCKS--><!--START: TOP_SELLERS_BLOCK-->
+                            <table width="186" border="0" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td align="left" class="menu-headers">[frame_top-sellers]</td>
+                              </tr>
+                              <!--START: topsellers-->
+                              <!--START: topsellers_topitem-->
+                              <tr>
+                                <td align="center"><table cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td width="150"><div style="position:relative">
+                                          <div class="top-sellers-star">[ranking]</div>
+                                          <table cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                              <td align="center"><a href="product.asp?itemid=[catalogid]"><img src="thumbnail.asp?file=[thumbnail]&maxx=150&maxy=0" alt="[name]" vspace="5" border="0"></a></td>
+                                            </tr>
+                                            <tr>
+                                              <td class="item" align="center"><a href="product.asp?itemid=[catalogid]" class="cat">[name]</a></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="center" class="price2" width="50%"><!--START: ITEMPRICE-->
+                                                [ITEMPRICE]<br>
+                                                <!--END: ITEMPRICE-->
+                                                <!--START: SALEPRICE-->
+                                                <s>[ITEMPRICE]</s><br>
+                                                [ITEMSALEPRICE]
+                                                <!--END: SALEPRICE--></td>
+                                            </tr>
+                                            <tr>
+                                              <td class="item" align="center"><!--START: product_review_average-->
+                                                <img src="assets/templates/common/images/star[review_average].png" vspace="5" border="0" alt="">
+                                                <!--END: product_review_average--></td>
+                                            </tr>
+                                            <tr>
+                                              <td nowrap="nowrap" align="center"> <a href="product.asp?itemid=[catalogid]" class="top-details">more details</a></td>
+                                            </tr>
+                                          </table>
+                                        </div></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2" align="center"><img src="assets/templates/common/images/spacer.gif" height="5" alt=""></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td><img src="assets/images/spacer.gif" height="10"></td>
+                              </tr>
+                              <!--END: topsellers_topitem-->
+                              <!--START: topsellers_item-->
+                              <tr>
+                                <td style="padding: 0px 5px 0px 5px;"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td rowspan="5" valign="top" class="ranking">[ranking].</td>
+                                      <td rowspan="5" valign="top"><a href="product.asp?itemid=[catalogid]"><img src="thumbnail.asp?file=[thumbnail]&maxx=63&maxy=0" alt="[name]" hspace="5" border="0"></a></td>
+                                      <td align="left" class="item" style="overflow: hidden; width: 50px;"><a href="product.asp?itemid=[catalogid]" class="cat">[name]</a></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left" class="price"><!--START: ITEMPRICE-->
+                                        [ITEMPRICE]
+                                        <!--END: ITEMPRICE-->
+                                        <!--START: SALEPRICE-->
+                                        <s>[ITEMPRICE]</s><br>
+                                        [ITEMSALEPRICE]
+                                        <!--END: SALEPRICE--></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left"><!--START: product_review_average-->
+                                        <img src="assets/templates/common/images/star[review_average].png" border="0" alt="">
+                                        <!--END: product_review_average--></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left"><a href="product.asp?itemid=[catalogid]" class="details">more details</a></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td align="center" class="item"><img src="assets/templates/[template]/images/cat-dot.png" width="172" height="3" vspace="10"></td>
+                              </tr>
+                              <!--END: topsellers_item-->
+                              <!--END: topsellers-->
+                            </table>
+                            <div><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></div>
+                            <!--END: TOP_SELLERS_BLOCK--><!--START: NEW_RELEASES_BLOCK-->
+                            <table width="186" border="0" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td align="left" class="menu-headers">[frame_new-releases]</td>
+                              </tr>
+                              <!--START: newreleases-->
+                              <!--START: newreleases_topitem-->
+                              <tr>
+                                <td><table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td rowspan="5" valign="top"><a href="product.asp?itemid=[catalogid]"><img src="thumbnail.asp?file=[thumbnail]&maxx=63&maxy=0" alt="[name]" hspace="10" border="0"></a></td>
+                                      <td align="left" class="item"><a href="product.asp?itemid=[catalogid]" class="cat">[name]</a></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left" class="price"><!--START: ITEMPRICE-->
+                                        [ITEMPRICE]
+                                        <!--END: ITEMPRICE-->
+                                        <!--START: SALEPRICE-->
+                                        <s>[ITEMPRICE]</s><br>
+                                        [ITEMSALEPRICE]
+                                        <!--END: SALEPRICE--></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left"><!--START: product_review_average-->
+                                        <img src="assets/templates/common/images/star[review_average].png" border="0" alt="">
+                                        <!--END: product_review_average--></td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left"><a href="product.asp?itemid=[catalogid]" class="details">more details</a></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td align="center" class="item"><img src="assets/templates/[template]/images/cat-dot.png" width="172" height="3" vspace="10"></td>
+                              </tr>
+                              <!--END: newreleases_topitem-->
+                              <!--START: newreleases_item-->
+                              <tr>
+                                <td style="padding: 0px 10px 0px 10px;"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td colspan="2" align="left" class="item"><a href="product.asp?itemid=[catalogid]" class="cat">[name]</a></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="item" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                            <td width="50%" align="left" class="price"><!--START: ITEMPRICE-->
+                                              [ITEMPRICE]
+                                              <!--END: ITEMPRICE-->
+                                              <!--START: SALEPRICE-->
+                                              <s>[ITEMPRICE]</s><br>
+                                              [ITEMSALEPRICE]
+                                              <!--END: SALEPRICE--></td>
+                                            <td width="50%" align="right"><!--START: product_review_average-->
+                                              <img src="assets/templates/common/images/star[review_average].png" border="0" alt="">
+                                              <!--END: product_review_average--></td>
+                                          </tr>
+                                        </table></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td align="center" class="item"><img src="assets/templates/[template]/images/cat-dot.png" width="172" height="3" vspace="10"></td>
+                              </tr>
+                              <!--END: newreleases_item-->
+                              <!--END: newreleases-->
+                            </table>
+                            <!--END: NEW_RELEASES_BLOCK--><!--START: RIGHT_BANNER-->
+                            <table width="100%"  cellspacing="0" cellpadding="4" border="0">
+                              <tr>
+                                <td align="center">[RIGHT_BANNER]</td>
+                              </tr>
+                            </table>
+                            <!--END: RIGHT_BANNER--><!--END: RIGHT_BAR_BLOCKS-->
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-baseL.png" width="10" height="10"></td>
+                              <td style="background: url(assets/templates/[template]/images/frame-baseM.png) repeat-x;"><img src="assets/templates/common/images/spacer.gif" width="1" height="10"></td>
+                              <td width="10"><img src="assets/templates/[template]/images/frame-baseR.png" width="10" height="10"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                  <!--END: RIGHT BAR-->
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td><img src="assets/templates/common/images/spacer.gif" width="1" height="5"></td>
+          </tr>
+          <tr>
+            <td height="30" align="center"><!--START: FRAME_LINKS-->
+              <table cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <!--START: LINKS-->
+                  <!--START: LINK_FORMAT-->
+                  <td nowrap="nowrap" class="menu-text"><a href="infopage.asp?page=[link_id]&extra=1" class="menu-bottom" target="[link_target]">[link_name]</a>  |  </td>
+                  <!--END: LINK_FORMAT-->
+                  <!--END: LINKS-->
+                </tr>
+              </table>
+              <!--END: FRAME_LINKS--></td>
+          </tr>
+          <tr>
+            <td align="center"><div class="footer" style="padding: 5px;">Copyright  2012 Online Cabinets Direct. All Rights Reserved.</div></td>
+          </tr>
+          <tr>
+            <td align="center"><div class="footer">[GLOBAL_FOOTER]</div></td>
+          </tr>
+          <tr>
+            <td align="center"><!--START: 3dcart stats-->
+              <script type="text/javascript" language="JavaScript">
+
+var file='/stats/count.asp';
+
+var stats_d=new Date();
+var stats_s=stats_d.getSeconds();
+var stats_m=stats_d.getMinutes();
+var stats_x=stats_s*stats_m;
+var prdID = '[catalogid]';
+var catID = '[catid]';
+
+stats_f='' + escape(document.referrer); stats_f=stats_f.replace('_','----');
+if (navigator.appName=='Netscape'){stats_b='NS';}
+if (navigator.appName=='Microsoft Internet Explorer'){stats_b='MSIE';}
+if (navigator.appVersion.indexOf('MSIE 3')>0) {stats_b='MSIE';}
+stats_u='' + escape(document.URL); stats_u=stats_u.replace('_','----'); stats_w=screen.width; stats_h=screen.height;
+stats_v=navigator.appName;
+stats_fs = window.screen.fontSmoothingEnabled;
+if (stats_v != 'Netscape') {stats_c=screen.colorDepth;}
+else {stats_c=screen.pixelDepth;}
+stats_j=navigator.javaEnabled();
+info='w=' + stats_w + '&h=' + stats_h + '&c=' + stats_c + '&r=' + stats_f + '&u='+ stats_u + '&fs=' + stats_fs + '&b=' + stats_b + '&x=' + stats_x + '&cat=' + catID + '&prd=' + prdID;
+document.write('<img src="' + file + '?'+info+ '" width=1 height=1 border=0>');
+</script>
+              <noscript>
+              <img src="/stats/count.asp" width=90 height=30 border=0>
+              </noscript>
+              <!--END: 3dcart stats--></td>
+          </tr>
+          <tr>
+            <td align="center"><img src="assets/templates/common/images/spacer.gif" width="1" height="105"></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</center>
+
+<script language="JavaScript" src="https://www.rtakitchencabinetsonline.com/3droi/monstertrack.asp" type="text/JavaScript"></script>
+<script language="Javascript">
+lt_action="";
+track();
+</script>
+
+</body>
+</html>

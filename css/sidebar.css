@@ -1,0 +1,33 @@
+#sidebar_wrapper {
+	z-index:100;
+	position:fixed;
+	right:0;
+	width:0;
+	top:0;
+	height:100%;
+	background:#ffffff;
+	border-left:1px solid #cccccc;
+}
+
+#page_content_wrapper {
+	margin:auto; 
+	width:100%;
+	margin:auto;
+	height:auto;
+}
+
+#sidebar_content {
+	height:95%;
+	overflow:auto;
+}
+
+
+/*change the width of sidebar to display it */
+.menuDisplayed #sidebar_wrapper {
+	width:500px;	
+}
+
+.menuDisplayed #page_content_wrapper {
+	padding-right:500px;
+}
+

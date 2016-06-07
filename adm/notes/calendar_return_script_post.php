@@ -1,0 +1,11 @@
+if($_POST['post_back_page']=="calendar_list")
+{
+$the_back_page="calendar_list.php";
+}
+else
+{
+$the_back_page="calendar_list.php?month=";
+$the_back_page.=$_POST['post_month'];
+$the_back_page.="&right_now=";
+$the_back_page.=$_POST['post_right_now'];
+}

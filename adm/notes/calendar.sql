@@ -1,0 +1,53 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jul 06, 2013 at 06:58 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `trinity`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE IF NOT EXISTS `calendar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_category` varchar(150) NOT NULL,
+  `event_name` varchar(150) NOT NULL,
+  `event_desc` blob NOT NULL,
+  `event_start` datetime NOT NULL,
+  `event_end` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `event_category`, `event_name`, `event_desc`, `event_start`, `event_end`) VALUES
+(122, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-20 16:30:00', '2013-07-20 18:30:00'),
+(121, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-19 16:30:00', '2013-07-20 18:30:00'),
+(120, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-18 16:30:00', '2013-07-20 18:30:00'),
+(119, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-17 16:30:00', '2013-07-20 18:30:00'),
+(118, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-16 16:30:00', '2013-07-20 18:30:00'),
+(117, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-15 16:30:00', '2013-07-20 18:30:00'),
+(116, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-14 16:30:00', '2013-07-20 18:30:00'),
+(115, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-13 16:30:00', '2013-07-20 18:30:00'),
+(114, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-12 16:30:00', '2013-07-20 18:30:00'),
+(113, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-11 16:30:00', '2013-07-20 18:30:00'),
+(112, '', '', 0x646573637269626520746865206576656e742e2e2e, '2013-07-10 16:30:00', '2013-07-20 18:30:00');

@@ -1,0 +1,16 @@
+/*top-grafx1:: Controls the position/visibility of the Floral type design in the header of this template.*/		 
+.top-grafx1 {
+	display: block;
+	z-index: 2;
+	position: absolute;
+	left: -10;
+	bottom: -27;
+}
+/*top-grafx2:: Controls the position/visibility of the Floral type design in the header of this template.*/		 
+.top-grafx2 {
+	display: block;
+	z-index: 2;
+	position: absolute;
+	right: -40;
+	bottom: -20;
+}

@@ -1,0 +1,202 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+	background:#ffffff;
+	padding:10px;
+	text-align:center;
+}
+#body {
+   padding:10px;
+   padding-bottom:30px;   /* Height of the footer */
+}
+
+#body_container {
+width:1000px;
+margin: 0 auto;
+}
+
+#footer {
+   position:absolute;
+   padding-top:8px;
+   bottom:0;
+   width:100%;
+   height:30px;   /* Height of the footer */
+   background:#000000;
+   text-align:center;
+}
+
+table.center {
+margin:auto;
+}
+
+table.tooltip {
+border-spacing:3px;
+width:400px;
+border: 1px solid white;
+white-space:normal;
+}
+
+td {
+	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 14px;
+	color: #000000;
+	text-align:left;
+	}
+	
+td.black {
+font-family: Verdana, Microsoft Sans Serif;
+font-size: 14px;
+color: #ffffff;
+text-align:left;
+background-color:#000000;
+}
+
+td.top_header {
+text-align:center;
+}
+	
+td.admin_body {
+text-align:center;
+}
+
+td.admin_body_display {
+text-align:center;
+color:#ffffff;
+background-color:#000000;
+}
+
+td.right {
+text-align:right;
+}
+
+td.admin_cell {
+text-align:center;
+vertical-align:top;
+}
+
+td.TitleText {
+background-color:#FFFFFF;
+font-family: Verdana, Microsoft Sans Serif;
+font-size: 20px;
+color: #000000;
+font-weight:bold;
+}
+
+td.Footer {
+font-family: Verdana, Microsoft Sans Serif;
+font-size: 10px;
+color: #ffffff;
+}
+
+td.calendar_list_cell_top {
+white-space:nowrap;
+text-align:center;
+background-color:#cccccc;
+}	
+	
+td.calendar_list_cell {
+text-align:left;
+white-space:nowrap;
+vertical-align:center;
+}
+
+td.master_calendar {
+width:300px;
+height:200px;
+border: 1px solid grey;
+font-size:12px;
+vertical-align:top;
+}
+
+td.master_calendar_list {
+font-size:12px;
+vertical-align:center;
+white-space: nowrap;
+}
+
+td.year {
+font-size:18px;
+font-weight:bold;
+}
+
+#tooltip_description {
+position:relative;
+width:400px;
+white-space:normal;
+}	
+
+TEXTAREA {
+	width:700px;
+	height:250px;
+	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 10px;
+	color: #000000;
+	float:left:
+	}
+	
+A
+{
+	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 14px;
+	color: #000000;
+	text-decoration:underline;
+}
+
+A:Hover {
+	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 14px;
+	color: #000000;
+	text-decoration:underline;
+}
+
+A:Visited {
+	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 14px;
+	color: #000000;
+	text-decoration:underline;
+}
+
+A.Footer {
+  	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 10px;
+	color: #ffffff;
+
+}
+
+A.Footer:hover {
+    	font-family: Verdana, Microsoft Sans Serif;
+	font-size: 10px;
+	text-decoration:underline;
+	color: #ffffff;
+ }
+
+ A.Footer:visited {
+  	 font-family: Verdana, Microsoft Sans Serif;
+	font-size: 9px;
+	color: #ffffff;
+ }
+
+.tip {
+
+    background-color:#ffffff;
+	filter:alpha(opacity=95);
+	/* CSS3 standard */
+	/*opacity:0.6;*/
+	border:1px solid black;
+    display:none; /*--Hides by default--*/
+    padding:10px;
+    position:absolute;    
+	z-index:1000;
+	text-decoration: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

@@ -1,0 +1,574 @@
+body {
+	font-family: Helvetica, Microsoft Sans Serif;
+	font-size: 14px;
+	color: #000000;
+	vertical-align: top;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	}
+	
+.navbar_background {
+	height:77px;
+	width:auto;
+	background-image:url(../images/navbar_background.png);
+	background-repeat:repeat-x;
+}
+
+.navbar {
+	height:22px; 
+	width:100%; 
+	position:absolute; 
+	margin-top:8px;	
+}
+
+.navcontainer {
+	height:23px; 
+	width:820px; 
+	float:right;
+	padding-right:15px;
+	position:relative;
+	z-index:100;
+}
+
+.navcontainer ul {
+	position: absolute;
+	padding:0;
+	margin: 0px;
+	list-style-type:none;
+	z-index:100;
+	color:#ffffff;
+	float:right;
+}
+
+/*here's my list characteristics as far how things are displayed and how they're "floated" */
+.navcontainer ul li {
+position: relative;
+display: block;
+float: left;
+z-index:100;
+color:#ffffff;
+height:26px;
+background-image:url(../images/search_button.png);
+}
+
+.navcontainer ul li a {
+text-decoration: none;
+display: block;
+padding-right: 0px;
+color:#ffffff;
+padding-left:30px;
+font-variant:small-caps;
+}
+
+.navcontainer ul li a.doors {
+color:#000000;
+text-decoration:none;
+font-weight:bold;
+font-variant:normal;
+font-size:9pt;
+padding-left:0px;
+}
+
+.navcontainer ul li a.doors:hover {
+	color:#443933;
+	text-decoration:underline;
+}
+
+/* this command tells my li's within the first tier of ul's to bust out with a pulldown menu */
+.navcontainer ul li:hover > ul 
+{
+display: block;
+}
+
+/* now we're getting jiggy with it by establishing the rules for the actual pulldown menu */
+.navcontainer ul ul {
+display: none;
+margin-top: 5px;
+padding-top: 0;
+position: absolute;
+/*background: rgba(204,204,204, .8);*/
+background-color:#443933;
+border-style:solid;
+border-width: thin;
+border-color:#cccccc;
+line-height:20px;
+z-index:100;
+width:185px;
+/*border-radius:6px;
+-moz-border-radius:6px;*/
+}
+
+.navcontainer ul ul li {
+float:none;
+margin:0px;
+padding:0;
+}
+
+.navcontainer ul ul li a {
+display: block;
+margin-left:0px;
+margin-top:1px;
+font-family: Helvetica, Microsoft Sans Serif;
+font-size: 10.5pt;
+padding-left:5px;
+padding-right:10px;
+z-index:100;
+position:relative;
+}	
+
+.navcontainer ul ul li a:hover {
+	color:#443933;
+	background-color:#ffffff;
+	width:100%;
+}
+
+.navcontainer ul ul li:hover > ul 
+{
+display: block;
+}
+
+.navcontainer ul ul li:hover {
+display:block;
+}
+
+.navcontainer:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.navcontainer .slidingNavTerms {
+	border:0; 
+	background-color:#623b26; 
+	padding:3px; 
+	border-radius:3px; 
+	width:auto; 
+	white-space:nowrap;		
+}
+
+.navcontainer .slidingNavTerms a:hover {
+	line-height:26px;
+	background-color:#623b26; 
+	color:#ffffff;
+	text-decoration:underline;
+}
+
+
+.navcontainer ul li.gallery {
+display: none;
+margin: 0;
+padding: 0;
+width: 605px;
+height:400px;
+position: absolute;
+top: 20px;
+left: -290px;
+background: #ffffff;
+text-align:left;
+}
+
+
+.gallery ul a {
+color: #666;
+text-decoration: none;
+display: block;
+padding:  3px 5px;
+margin: 0px;
+height: 20px;
+}
+
+.gallery ul a:hover {
+	background: #ffffff;
+	color: #000000 !important;
+}
+
+.gallery ul a.plain {
+	text-decoration: underline;
+	padding:0px;
+	}
+	
+	.gallery ul a.doors {
+		color:#000000;
+	font-weight:bold; 
+	text-decoration:underline;	
+	}
+	
+	.bbb_logo {
+	width:145px;
+	height:45px;
+	position:absolute;
+	margin-left:15px;
+	margin-top:2px;
+	background-image:url(../images/bbb_logo.jpg);
+	background-repeat:no-repeat;
+}
+
+.social_icons {
+	width:145px;
+	height:45px;
+	float:right;
+	margin-top:2px;
+	background-image:url(../images/social_icons.jpg);
+	background-repeat:no-repeat;
+}
+
+.facebook_link {
+	width:37px;
+	height:37px;
+	display:inline-block;
+	margin-top:6px;
+	margin-left:5px;
+}
+
+.blog_link {
+	width:37px;
+	height:37px;
+	display:inline-block;
+	margin-top:6px;
+	margin-left:8px;
+}
+
+.store_link {
+	width:37px;
+	height:37px;
+	display:inline-block;
+	margin-top:6px;
+	margin-left:6px;
+}
+
+.no_cam_sign {
+	width:646px;
+	height:43px;
+	margin:auto;
+	background-image:url(../images/no_cam_sign.jpg);
+	background-repeat:no-repeat;	
+}
+
+.logo {
+position:absolute;
+z-index:10;
+margin-left:25px;
+margin-top:50px;
+width:424px;
+height:150px;
+background-image:url(../images/logo.png);
+background-repeat:no-repeat;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	font-size:8pt;
+	color:#000000;
+	text-align:center;
+	font-variant:small-caps;
+	padding-top:8px;
+	background-color:#ffffff;
+}
+
+.smoke {
+	background-image:url(../images/smoke_background.jpg);
+	background-repeat:y-repeat;
+	width:100%;
+	height:244px;
+	margin-top:-65px;
+}
+
+.door_sample {
+	position:absolute;
+	width:150px;
+	height:100px;
+	margin-top:15px;
+	margin-left:50px;
+}
+
+.cabinets {
+	position:absolute;
+	width:150px;
+	height:100px;
+	margin-top:15px;
+	margin-left:265px;
+}
+
+.trims {
+	position:absolute;
+	width:150px;
+	height:100px;
+	margin-top:15px;
+	margin-left:480px;
+}
+
+.posts {
+	position:absolute;
+	width:150px;
+	height:100px;
+	margin-top:15px;
+	margin-left:685px;
+}
+
+.accessories {
+	position:absolute;
+	width:150px;
+	height:100px;
+	margin-top:15px;
+	margin-left:900px;
+}
+
+.cabinet_pulls {
+	position:absolute;
+	width:1112px;
+	height:155px;
+	margin-left:350px;
+	margin-top:30px;
+	background-image:url(../images/cabinet_pulls.png);
+	background-repeat:no-repeat;
+}
+
+.sale_burst {
+	width:388px;
+	height:408px;
+	position:absolute;
+	background-image:url(../images/sale_burst.png);
+	background-repeat:no-repeat;	
+	z-index:100;
+	margin-left:1400px;
+	margin-top:350px;
+}
+
+.sale_burst_message {
+	width:200px;
+	height:105px;
+	margin-top:150px;
+	margin-left:80px;
+}
+
+@media only screen and (max-width: 1440px) {
+	
+	.smoke {
+		background-image:url(../images/smoke_background.jpg);
+		background-repeat:y-repeat;
+		width:100%;
+		height:244px;
+		margin-top:-60px;
+	}
+
+	.cabinet_pulls {
+	position:absolute;
+	width:1112px;
+	height:155px;
+	margin-left:150px;
+	margin-top:20px;
+	background-image:url(../images/cabinet_pulls.png);
+	background-repeat:no-repeat;
+	z-index:200;
+	}
+	
+	.sale_burst {
+	width:250px;
+	height:263px;
+	position:absolute;
+	background-image:url(../images/sale_burst_small.png);
+	background-repeat:no-repeat;	
+	z-index:100;
+	margin-left:1100px;
+	margin-top:310px;
+}
+
+.sale_burst_message {
+	width:150px;
+	height:105px;
+	margin-top:100px;
+	margin-left:55px;
+	font-size:9pt;
+}
+ 
+}
+
+@media only screen and (max-width: 1366px) {
+	
+	.smoke {
+		background-image:url(../images/smoke_background.jpg);
+		background-repeat:y-repeat;
+		width:100%;
+		height:244px;
+		margin-top:-65px;
+	}
+
+	.cabinet_pulls {
+	position:absolute;
+	width:1112px;
+	height:155px;
+	margin-left:100px;
+	margin-top:20px;
+	background-image:url(../images/cabinet_pulls.png);
+	background-repeat:no-repeat;
+	z-index:200;
+	}
+	
+	.sale_burst {
+	width:250px;
+	height:263px;
+	position:absolute;
+	background-image:url(../images/sale_burst_small.png);
+	background-repeat:no-repeat;	
+	z-index:100;
+	margin-left:1070px;
+	margin-top:180px;
+}
+
+.sale_burst_message {
+	width:150px;
+	height:105px;
+	margin-top:100px;
+	margin-left:50px;
+	font-size:9pt;
+}
+ 
+ 
+}
+
+@media only screen and (max-width: 1280px) {
+	
+	.smoke {
+		background-image:url(../images/smoke_background.jpg);
+		background-repeat:y-repeat;
+		width:100%;
+		height:244px;
+		margin-top:-58px;
+	}
+
+	.cabinet_pulls {
+	position:absolute;
+	width:1112px;
+	height:155px;
+	margin-left:60px;
+	margin-top:20px;
+	background-image:url(../images/cabinet_pulls.png);
+	background-repeat:no-repeat;
+	z-index:200;
+	}
+	
+	.sale_burst {
+	width:250px;
+	height:263px;
+	position:absolute;
+	background-image:url(../images/sale_burst_small.png);
+	background-repeat:no-repeat;	
+	z-index:100;
+	margin-left:990px;
+	margin-top:205px;
+}
+
+.sale_burst_message {
+	width:150px;
+	height:105px;
+	margin-top:100px;
+	margin-left:50px;
+	font-size:9pt;
+}
+ 
+}
+
+@media only screen and (max-width: 1024px) {
+	
+	.smoke {
+		background-image:url(../images/smoke_background.jpg);
+		background-repeat:y-repeat;
+		width:100%;
+		height:244px;
+		margin-top:-60px;
+	}
+
+	.cabinet_pulls {
+	position:absolute;
+	width:700px;
+	height:97px;
+	margin-left:150px;
+	margin-top:15px;
+	background-image:url(../images/cabinet_pulls_small.png);
+	background-repeat:no-repeat;
+	z-index:200;
+	}
+	
+	.sale_burst {
+	width:250px;
+	height:263px;
+	position:absolute;
+	background-image:url(../images/sale_burst_small.png);
+	background-repeat:no-repeat;	
+	z-index:100;
+	margin-left:750px;
+	margin-top:100px;
+}
+
+	.sale_burst_message {
+		width:150px;
+		height:105px;
+		margin-top:100px;
+		margin-left:50px;
+		font-size:9pt;
+	}
+		
+	.footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	font-size:8pt;
+	color:#000000;
+	text-align:center;
+	font-variant:small-caps;
+	padding-top:8px;
+	background-color:#ffffff;
+}
+
+.door_sample {
+	position:absolute;
+	width:130px;
+	height:75px;
+	margin-top:8px;
+	margin-left:20px;
+}
+
+.cabinets {
+	position:absolute;
+	width:130px;
+	height:75px;
+	margin-top:8px;
+	margin-left:150px;
+}
+
+.trims {
+	position:absolute;
+	width:130px;
+	height:75px;
+	margin-top:8px;
+	margin-left:285px;
+}
+
+.posts {
+	position:absolute;
+	width:130px;
+	height:75px;
+	margin-top:8px;
+	margin-left:420px;
+}
+
+.accessories {
+	position:absolute;
+	width:130px;
+	height:75px;
+	margin-top:8px;
+	margin-left:555px;
+}
+ 
+}

@@ -1,0 +1,361 @@
+<!-- //3dcart v2.2//frame.html//Rev. #1 10/31/2006-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>[TITLE]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+[META]
+<script language="JavaScript" src="assets/templates/common/js/utilities.js" type="text/JavaScript"></script>
+<LINK REL="StyleSheet" HREF="assets/templates/[template]/css/[stylesheet]" TYPE="text/css" MEDIA="screen">
+</head>
+
+<body>
+<center>
+<table width="[screenwidth]" cellspacing="0" cellpadding="0" border="0" class="data">
+<tr><td rowspan="2" class="line2">
+<!--START: global_header-->
+<span class="store-name">[storename]</span><br><span class="store-slogan">[storeslogan]</span>
+<!--END: global_header-->
+</td>
+<td align="right" class="line">	 <!--START: FRAME_MENU-->
+			 <table cellspacing="0" cellpadding="4" border="0">
+           
+			  <tr>
+              
+			        <!--START: menuitems_view-->
+					<!--START: TOP_LINK_FORMAT-->
+					<td><span class="icon">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a href="infopage.asp?page=[link_id]" class="menu" target="[link_target]">[link_name]</a></td>
+					<!--END: TOP_LINK_FORMAT--> 
+					<!--END: menuitems_view--> 
+				
+			</tr>
+		
+          	 </table>
+			 <!--END: FRAME_MENU-->
+			 </td></tr>
+<tr><td align="right" class="line" >	 <!--START: FRAME_SEARCH-->
+			<form method="get" action="search.asp" STYLE="margin: 0px; padding: 0px;">
+			<table width="200" cellspacing="0" cellpadding="4" border="0">
+				
+				<tr>
+					<td class="font3" colspan="2">[frame_search]</td>
+			
+					<td width="78"><input  type="text" size="13" name="keyword" class="txtBoxStyle"></td><td width="66"><input  type="submit" name="search" value="GO" class="btn"  onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></td>
+				</tr>
+				
+				
+			</table>
+			</form>
+			<!--END: FRAME_SEARCH--></td></tr>
+			
+			<tr><td colspan="2">
+			<table width="100%" cellpadding="0" cellspacing="0">
+			<tr><td align="center" class="frame" width="140" valign="top">
+				 <!--START: FRAME_CATEGORY-->
+			 <table width="140" cellspacing="0" cellpadding="0" border="0">
+	              <tr>
+	                <td class="menu-headers" align="left">&nbsp;&nbsp;[frame_categories]</td>
+	              </tr>
+	             
+					<!--START: CATEGORIES-->
+								
+					<!--START: CATEGORY_FORMAT-->
+						<tr><td align="left"><a href="view_category.asp?cat=CATID" class="cat">&nbsp;CATEGORY</a></td>
+						</tr>
+					<!--END: CATEGORY_FORMAT-->
+					
+					<!--START: SUB_CATEGORY_FORMAT-->
+	        			<tr><td align="left">&nbsp;&nbsp;<span class="icon">&raquo;&nbsp;</span><a href="view_category.asp?cat=CATID" class="cat">CATEGORY</a></td></tr>
+	             	<!--END: SUB_CATEGORY_FORMAT-->
+		 
+					<!--END: CATEGORIES--> 
+				
+           </table>
+	 <!--END: FRAME_CATEGORY-->
+
+	
+			
+		
+			
+ 
+
+	 
+				 <!--START: FRAME_MANUFACTURER-->	
+		 
+<!--		<form name=mfg id=mfg method=post action=search_groups.asp?manf=1>-->
+
+		<TABLE width="140" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+	                <td class="menu-headers" align="left">&nbsp;&nbsp;[frame_manufacturer]</td>
+	              </tr>
+			
+				<!--START: manufacturer_format-->
+				<tr><td align="left"><a href="search_groups.asp?manf=[mfgid]" class="cat">&nbsp;[manufacturer]</a></td></tr>
+				<!--END: manufacturer_format--> 
+	
+
+
+<!--			<select name="manufacturer" onchange="this.form.submit();">
+				<option value=0 selected>Manufacturer</option>
+			<!-START: manufacturer_format->
+				<option>[manufacturer]</option>
+			<!-END: manufacturer_format->
+			</select>-->
+
+		</TABLE>
+<!--		</form>-->
+			 <!--END: FRAME_MANUFACTURER-->
+
+ <!--START: FRAME_BYPRICE-->
+
+<table width="140" cellpadding="0" cellspacing="0" class="frame">
+<tr><td>	 
+		<TABLE width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+	                <td class="menu-headers" align="left">&nbsp;&nbsp;[frame_byprice]</td>
+	              </tr>
+			 <tr>
+	                <td>
+				<!--START: byprice_format-->
+				<tr><td align="left"><a href="search_groups.asp?keyword=[id]&byprice=[id]" class="cat">&nbsp;[title]</a></td></tr>
+				<!--END: byprice_format--> 
+	
+
+			
+		</TABLE>
+		
+		</td></tr>
+</table>
+
+
+			 <!--END: FRAME_BYPRICE-->			 
+
+			 
+			 
+	
+
+	<!--START: FRAME_MAILLIST-->
+<form method="post" name="mailing" action="mailing_list.asp?action=add" onSubmit="return mailing_list();">
+
+		       
+			    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        	      
+				  
+    	          	
+					<tr>
+                  		<td class="menu-headers"  align="left">&nbsp;&nbsp;[frame_mailinglist]</td>
+    	        	</tr>
+    	         <tr><td align="center">
+				 
+				 <table width="95%" cellpadding="0" cellspacing="0">
+				 	 <tr>
+					 <td class="menu-text"  align="left"colspan="2">[mailinglist_text]</td>
+				    </tr>  
+					
+					<tr>
+					<td align="left"><input type="text" size="13" name="email" class="txtBoxStyle"></td><td align="left"><input type="submit" name="www" value="[mailinglist_button]" class="btn"  onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></td>
+				    </tr>  
+		
+					<tr>
+					<td  class="menu-text" colspan="2" align="left"><input type="radio" name="subscribe" value="1" checked>[mailinglist_subscribe]</td>
+					</tr>
+	
+					<tr>
+					<td  class="menu-text" colspan="2" align="left"><input type="radio" name="subscribe" value="0">[mailinglist_unsubscribe]</td>
+				    </tr>        	
+           		
+				 
+				 
+				 </table>
+				 </td></tr>
+				</table>
+				
+
+</form>
+
+	<!--END: FRAME_MAILLIST-->
+	
+	      <!--START: TOP_SELLERS_BLOCK-->
+		 <table width="100%" cellpadding="2" cellspacing="0" border="0">
+	       <tr><td class="menu-headers" colspan="2">Best Sellers</td></tr>
+			<!--START: topsellers--> 
+			<tr><td align="left" class="item"><a href="product.asp?itemid=[catalogid]" class="cat"><span class="icon">[ranking]</span>&nbsp;[name]</a></td></tr>
+			<!--END: topsellers-->								
+		</table>
+			<br>
+        <!--END: TOP_SELLERS_BLOCK-->
+
+
+	<!--START: LEFT_BANNER-->
+		 <table width="100%"  cellspacing="0" cellpadding="4" border="0">
+	              <tr>
+        	        <td>[LEFT_BANNER]</td>
+	              </tr>
+		</table>
+
+	<!--END: LEFT_BANNER-->	
+
+			
+			</td><td align="center" valign="top" width="100%">
+			<table width="100%" cellpadding="0" cellspacing="0"><tr><td width="100%" valign="top" align="center">MIDDLE</td>
+			
+			
+			<td valign="top" width="140"><!--START: RIGHT BAR-->
+
+
+			
+	<!--START: shopping_cart-->
+			<table width="140" cellspacing="0" cellpadding="0" border="0" class="cart-text">
+			
+              			<tr> 
+			                <td class="menu-headers" colspan="2" align="left">&nbsp;&nbsp;[frame_shoppingcart]</td>
+		              </tr>             
+        <!--START: shopping_cart_full-->
+		<form action="recalculate.asp" method="POST" name="recalculate">
+				<tr>    
+	<td  class="cart-text" align="center"><input  type="submit" name="www" value="[shoppingcart_updatecart]" class="btn" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></td>
+
+     <td  class="cart-text" align="center"><input type="submit" name="clearcart" value="[shoppingcart_clearcart]" onClick="javascript:document.recalculate.action='recalculate.asp?clearcart=1';document.recalculate.submit();" class="btn" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></td>
+				</tr>
+<tr><td class="cart-text" colspan="2">
+				
+	<!--START: SHOPPING_CART_ITEM-->				
+								<table width="160" border=0 cellspacing="0" cellpadding="2">
+									<tr>
+										<td class="cart-text" colspan="2">[ITEM_NAME]</a>
+										<!--START: itemoptions--><br><a href='#' onClick="toggle('opt[ITEM_ID]')">View/Hide options</a>
+										<br><div id="opt[ITEM_ID]" name="opt[ITEM_ID]" style="display:none;">[OPTIONS]</div><!--END: itemoptions-->
+										</td>
+									</tr>
+									<tr>				
+										<td  valign="top" align="left" class="cart-text"><input class="input1" type="text" name="qtyitemnum" value="[ITEM_QUANTITY]" size="3" maxlength="5"><input type="hidden" name="coliditemnum" value="[ITEM_ID]"></td>
+										<td class="cart-text" valign="top" align="right"><strong>[ITEM_PRICE]</strong></td>
+									</tr>
+									<tr><td colspan="2" class="top" height="1"><img src="spacer.gif" width="95" height="1" alt="" border="0"></td></tr>
+									
+								</table>
+	<!--END: SHOPPING_CART_ITEM-->
+						</td></tr>
+				</form>	
+						<tr><td colspan="2" valign="top">
+						<!--START: SubTotal-->
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	
+								<form action="checkout.asp?step=1" method=post>			
+									<tr><td  align="center"  class="cart-text"> 
+            				                   
+	<!--START: DISCOUNTS-->
+							<strong>[shoppingcart_subtotal]</strong> [CARTSUBTOTAL]<br>
+							<strong> <a href="view_cart.asp">[shoppingcart_discount]</a></strong> [DISCOUNTS]<br>
+	<!--END: DISCOUNTS-->
+							<strong>Total:</strong> [CARTTOTAL]<br>
+          						      
+						                &nbsp;<input  type="submit" name="www" value="[shoppingcart_checkout]" class="btn" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"> <br>
+										<br>
+										
+										</td>
+													
+									</tr>
+						  </form>	
+								
+			<tr><td class="top"><img src="spacer.gif" width="95" height="1" alt="" border="0"></td></tr>
+	<!--START: apply_coupon-->
+		<tr><td class="data">
+			<table width=100% border=0 cellspacing=0 cellpadding=0>
+				<form name="frmcoupon" method="post" action="recalculate.asp?apply_coupon=1">
+				<tr><td class="cart-text" colspan=2 align="center"><strong>Apply Coupon</strong></td>
+				</tr> 
+				<tr><td class="cart-text" align="right"><input type="text" name="coupon_code" class="txtBoxStyle" size="10">&nbsp;&nbsp;</td><td class="cart-text"><input type=submit value="GO" class="btn" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></td></tr>
+				</form>
+			</table>
+		</td></tr>
+	<!--END: apply_coupon-->
+
+
+	</table>
+	<!--   END: SubTotal -->	
+
+	<!--START: quick_ship-->
+		<!--START: ShipQuote-->									
+								<table width=100% border=0 cellspacing=0 cellpadding=0 ID="Table1" bgcolor="#FFFFFF">
+										<form action="shipquote.asp" method=post name="shipquote">
+										<input type=hidden name="thispage" value>
+									<tr>		
+										<td  align="center"  class="cart-text"> 
+            				                   		 <p align=center><br><b>Calculate Shipping</b> <br>
+						                <b>Zip</b> <input  type="text" name="shipping_zip" size=4 value="[shipping_zip]" class="txtBoxStyle">&nbsp;<input  type="submit" value="GO!" class="btn" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'">&nbsp;<input type="button" class="btn" value="Clear" onClick="document.shipquote.action='shipquote.asp?action=clean';document.shipquote.submit();" onMouseOver="this.className='btn_over'" onMouseOut="this.className='btn'"></p>
+								[shipping_city] [shipping_state] [shipping_zip]
+										</td>			
+									</tr>
+								  </form>
+								</table>
+								
+								<script language="javascript">document.shipquote.thispage.value = window.location.href;</script>
+	<!--END: ShipQuote-->	
+	
+	
+	<table width=100% border=0 cellspacing=4 cellpadding=0 >
+	<!--START: Shippers-->
+								
+									<tr>
+										<td class="cart-text" colspan=2 align=center><b>[OPTION-SHIPPER]</b>&nbsp;<i>[OPTION-DESCRIPTION]</i>&nbsp;[OPTION-PRICE]</td>
+									</tr>
+									
+	<!--END: Shippers-->	
+	</table>				
+	<!--END: quick_ship-->					
+							
+								
+	<!--END: shopping_cart_full-->
+					
+	<!--START: shopping_cart_empty-->
+					<tr>
+						<td class="cart-text" align="center" colspan="2"> 
+						  CART IS EMPTY
+						</td>
+					</tr>
+	<!--END: shopping_cart_empty-->
+					
+								
+			  </table>
+						
+
+		
+	<!--END: shopping_cart-->
+
+   
+	<!--START: RIGHT_BANNER-->
+		 <table width="160"  cellspacing="0" cellpadding="4" border="0">
+	              <tr>
+        	        <td>[RIGHT_BANNER]</td>
+	              </tr>
+		</table>
+
+	<!--END: RIGHT_BANNER-->
+	
+	<!--END: RIGHT BAR--></td></tr></table></td></tr>
+			</table>
+			</td></tr>
+			<tr><td colspan="2" align="center" class="line2"><!--START: FRAME_LINKS-->
+		    <table  cellspacing="0" cellpadding="4" border="0">
+            
+			  <tr>
+            
+				<!--START: LINKS-->
+				
+				<!--START: LINK_FORMAT-->
+				<td><a href="infopage.asp?page=[link_id]&extra=1" class="menu">[link_name]&nbsp; |</a></td>
+				<!--END: LINK_FORMAT--> 
+				
+				<!--END: LINKS--> 
+			
+              </tr>
+            
+			</table>
+	<!--END: FRAME_LINKS--></td></tr>
+			<tr><td colspan="2" align="center" class="line"><span class="footer">[GLOBAL_FOOTER]</span> </td></tr>
+</table>
+<div class="font2">[frame_copyright1]</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,49 @@
+	<?php
+	$check_yesterday=date('Y-m-d', strtotime($the_day) - 86400);
+	$check_tomorrow = date('Y-m-d', strtotime($the_day) + 86400);
+	$jeff="select * from calendar where event_category='$maddie_row[name]' AND event_start between '$check_yesterday' AND '$check_tomorrow'";
+	$jeff_query=mysqli_query($cxn, $jeff);
+		if(!$jeff_query)
+		{
+		$rats=mysqli_errno($cxn).': '.mysqli_error($cxn);
+		die($rats);
+		}
+	$jeff_count=mysqli_num_rows($jeff_query);
+		if($jeff_count>0)
+		{
+		$jeff_row=mysqli_fetch_assoc($jeff_query);
+		extract($jeff_row);
+		echo date('g:i a', strtotime($jeff_row['event_start'])); 
+		}
+		else
+		{
+		echo "&nbsp;";
+		}
+	?>
+	
+	<?php
+  $jeff="SELECT * FROM calendar 
+               WHERE event_category='$maddie_row[name]' AND 
+               event_start BETWEEN 
+                    DATE_ADD(NOW(), INTERVAL -1 DAY) AND  
+                    DATE_ADD(NOW(), INTERVAL 1 DAY)";
+
+	$jeff_query=mysqli_query($cxn, $jeff);
+		if(!$jeff_query)
+		{
+		$rats=mysqli_errno($cxn).': '.mysqli_error($cxn);
+		die($rats);
+		}
+	$jeff_count=mysqli_num_rows($jeff_query);
+		if($jeff_count>0)
+		{
+		$jeff_row=mysqli_fetch_assoc($jeff_query);
+		extract($jeff_row);
+		echo date('g:i a', strtotime($jeff_row['event_start'])); 
+		}
+		else
+		{
+		echo "&nbsp;";
+		}
+	?>
+                                  

@@ -1,0 +1,488 @@
+/* 
+   -----------------------------------
+     iCart 
+	 Style Sheet 
+	 by Infomart2000 Corp.
+	 www.infomart2000.com
+   ----------------------------------
+   ##Default
+ */	
+	
+
+
+ /*body::Controls Page Background Color and any other fonts not defined below*/ 	
+body {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	color : #000000;
+	background-color : #d6d6ce;
+	font-weight : Normal;
+	}
+
+ /*store-name:: Store Name*/		 
+.store-name {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 35px;
+	color : #ffffff;
+	text-decoration : none;
+}
+
+ /*store-slogan:: Store Slogan*/		 
+.store-slogan {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #999997;
+	font-style : italic;
+	text-decoration : none;
+	font-weight: bold;
+}
+
+/*frame::  Controls the  Color of the Store's Frame */		
+.frame {
+	background-color : #ffffcc;
+}
+
+
+/*line::  Controls the  Color of the first top Bar */		
+.line{
+	background-color :#cccc99;
+}
+/*line2::  Controls the  Color of the second top Bar */		
+.line2{
+	background-color :#0099cc;
+}
+
+ /*menu-headers:: Controls the way the menu headers look*/ 
+.menu-headers {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #545452;
+	font-weight : bold;
+	background-color: #cccc99;
+	text-decoration : none;
+	line-height : 20px;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #cccc99;
+}
+
+/*titles:: Controls the Body Tiles such as (Specials, Feature Items, Items, Related Items)*/ 
+.titles {
+	font-family :   Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : bold;
+	background-color : #0099cc;
+	color : #ffffff;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #0099cc;
+	
+} 
+
+ /*data:: Controls body default fonts and colors  (Default Font Size is 12)*/
+.data {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 13px;
+	font-weight : normal;
+	color : #7E7E7C;
+	background-color : #ffffff;
+}
+
+ /*page_headers:: Controls the page's titles */
+.page_headers {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #0099cc;
+	background-color : #ffffff;
+}
+
+/*icon:: Controls the look of the icons*/ 
+.icon {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : bold;
+	color: #0099cc;
+}
+
+/*footer:: Displays at the very bottom of your online store,  copyright and desgined by notices  (Default Size is 9)*/		
+.footer {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	text-align : center;
+	color : #FBF7DF;
+}	
+
+ 	 
+/*A::Links::  Controls the way the  Links look before a user clicks  or mouse overs on them*/ 	 
+A {
+	font-family :  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #272727;
+	font-size : 10px;
+	font-weight : bold;
+	font-style:  normal;
+
+}
+	
+/*A:hover:: Controls the way the  Links look when a user passes  their mouse over a them*/ 	 	
+A:hover {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style: normal;
+	color : #0099cc;
+}
+
+/*A:visited:: Controls the way the  Links look after a user has visited that section*/ 
+A:visited {
+		font-family : Verdana, Arial, Helvetica, sans-serif;
+		color : #272727;
+}
+	
+/*A:visited:hover:: Controls the way the  Links look when a user hovers over a section they have visited*/ 	 
+A:visited:hover {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	color : #0099cc;
+} 
+
+/*A.menu::Links::  Controls the way the  menu links  look before a user clicks  or mouse overs on them*/ 	 
+A.menu {
+	font-family : Arial, Helvetica, sans-serif;
+	color : #272727;
+	font-size : 11px;
+	font-weight : normal;
+	font-style: normal;
+	text-decoration: none;
+}
+	
+/*A.menu:hover:: Controls the way the  menu links look when a user passes  their mouse over a them*/ 	 	
+A.menu:hover {
+	font-family :  Arial, Helvetica, sans-serif;
+	font-weight :  normal;
+	font-style: normal;
+	color : #585858;
+	text-decoration: underline;
+}
+
+/*A.menu:visited:: Controls the way the menu links look after a user has visited that section*/ 
+A.menu:visited {
+	font-family : Arial, Helvetica, sans-serif;
+	color : #272727;
+}
+	
+/*A.menu:visited:hover:: Controls the way the menu links look when a user hovers over a section they have visited*/ 	 
+A.menu:visited:hover {
+	font-family : Arial, Helvetica, sans-serif;
+	color : #585858;
+} 
+
+
+/*A.cat::Links::  Controls the way the  category links look before a user clicks  or mouse overs on them*/ 	 
+A.cat {
+	font-family :  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #585858;
+	font-size : 11px;
+	font-weight : normal;
+	font-style: normal;
+	text-decoration:  none;
+	width: 100%;
+	line-height: 20px;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #ffffcc;
+}
+	
+/*A.cat:hover:: Controls the way the  category links look when a user passes  their mouse over a them*/ 	 	
+A.cat:hover {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style: normal;
+	color : #0099cc;
+	text-decoration: none;
+	width: 100%;
+	line-height: 20px;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #ffffcc;
+	background-color: #ffffcc;
+}
+
+/*A.cat:visited:: Controls the way the category links look after a user has visited that section*/ 
+A.cat:visited {
+	font-family :  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #585858;
+	width: 100%;
+	line-height: 20px;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #ffffcc;
+}
+	
+/*A.cat:visited:hover:: Controls the way the  category links look when a user hovers over a section they have visited*/ 	 
+A.cat:visited:hover {
+	font-family :  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #0099cc;
+	text-decoration: none;
+	width: 100%;
+	line-height: 20px;
+	border: solid;
+	border-bottom-width: 1px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-color: #ffffcc;
+	background-color: #ffffcc;
+} 
+
+/*menu-text:: Controls the way the menu (mailing list) text look (Default Size is 12)*/ 
+.menu-text {
+	font-family :Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #585858;
+}
+
+/*item:: Controls the Item, Name, Description, Price, Savings, Cost,Font and Color  (Default Size is 12)*/ 
+.item {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : Normal;
+	color : #585C5F;
+	text-decoration: none;
+}
+
+ /*price-info:: controls the way the prices display on the product page*/ 
+.price-info {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : Normal;
+	color: #535353;
+}
+
+ /*price:: Controls the way the product prices look (Default Size is 12)*/ 
+.price {
+	font-family :Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #d90d0e;
+	font-weight: bold;
+}
+
+ /*checkout-headers:: Controls the titles on the checkout pages (Billing Information, Shipping Information etc)*/
+.checkout-headers {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #0099cc;
+	background-color : #ffffff;
+}
+ 
+/*titles2:: Controls the titles on the view cart page*/ 
+.titles2 {
+	font-family :   Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight : bold;
+	background-color : #cccc99;
+	color : #545452;
+	
+} 
+ 
+ /*alternative:: Controls the form backgrounds and other areas that requred an alternative color Normally Gray (Default Color is EEEEEE)*/
+.alternative {
+	background-color : #fdfbeb;
+   padding: 2px 4px 2px 4px;
+   border: 1px solid #e3e1d0;
+}
+  
+
+/*borders:: Controls the color of  the borders on forms*/ 
+.borders {
+		border : #cccc99;
+		background-color : #cccc99;
+		
+ }
+ 
+  /*borders_coupon:: Controls the color of  the borders on the coupon and shipping box*/ 
+.borders_coupon {
+    border: solid;
+    border-color: #aaa9a9;
+	border-width: 1px;
+}
+
+ /*steps:: Controls the way the steps on the checkout pages display*/
+.steps {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #cfd0d1;
+	background-color : #ffffff;
+}
+
+ /*steps_on:: Controls the way the steps on the checkout [ages display*/
+.steps_on {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #0099cc;
+	background-color : #ffffff;
+}
+
+/*error:: Controls the error messages*/ 
+.error {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight : bold;
+	color : #e10e04;
+	text-decoration: none;
+}
+
+ /*options-titles:: Controls the way the titles on the product options display*/
+.options-titles {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-weight : bold;
+	color : #0099cc;
+}
+
+/*borders2:: Controls the color of  the borders on forms*/ 
+.borders2 {
+		border : #0099cc;
+		background-color : #0099cc;
+ }
+
+
+/*cart-text:: Controls the text on the shopping cart*/ 
+.cart-text {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 9px;
+	font-weight : Normal;
+	color: #585858;
+	line-height : 18px;
+	background-color: #ffffcc;
+}
+
+/*invoice_title:: Controls the way the title of the invoices look */ 
+.invoice_title {
+	font-family :   Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight : bold;
+	background-color : #cbcaca;
+	color : #4f4e4e;
+	
+} 
+
+/*invoice_table:: Controls the background color on your invoices*/ 
+.invoice_table {
+    background-color : #f9f8f8;
+	
+} 
+
+
+/*font3:: Secondary Screen Font (Default Font Size is 12)*/ 
+.font3 {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : Normal;
+	color: #272727;
+} 
+ 
+/*font2:: Secondary Screen Font (Default Font Size is 12)*/ 
+.font2 {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : Normal;
+	color: #585C5F;
+}
+/*font1:: Secondary Screen Font (Default Font Size is 12)*/ 
+.font1 {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : Normal;
+	color: #585C5F;
+}
+
+ 
+/*btn:: Controls the buttons*/ 
+.btn {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    background-color: #0099cc;
+    font-family: arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 11px;    
+    color: #ffffff;
+	 cursor: pointer;
+	} 
+	
+/*btn_over:: Controls the buttons when you mouse over*/ 
+.btn_over {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    background-color: #1169e5;
+    font-family: arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 11px;    
+    color: #ffffff;
+	cursor: pointer;
+	} 		
+	
+/*btn2:: Controls the buttons*/
+.btn2 {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    background-color: #0099cc;
+    font-family: arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 11px;    
+    color: #ffffff;
+	cursor: pointer;
+	} 		
+	
+	
+  /*txtBoxStyle:: Controls the text boxes*/ 	
+	.txtBoxStyle{
+    border-top: 1px solid #b3b4b5;
+    border-bottom: 1px solid #b3b4b5;
+    border-left: 1px solid #b3b4b5;
+    border-right: 1px solid #b3b4b5;
+    background-color: #f5f4f2;
+    font-family: arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 11px;    
+    color: #38393a;
+	} 
+  /*txtareaStyle:: Controls the text areas*/ 		
+ 	 .txtareaStyle{
+    border-top: 1px solid #C7D5E0;
+    border-bottom: 1px solid #C7D5E0;
+    border-left: 1px solid #C7D5E0;
+    border-right: 1px solid #C7D5E0;
+    background-color: #FBFBFB;
+    font-family: arial, Helvetica, sans-serif;
+    font-weight: normal;;
+    font-size: 11px;    
+    color: #343333;
+	
+	height : 80px;
+	width: 250px;
+	}
+ 
+
