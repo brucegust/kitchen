@@ -130,6 +130,9 @@ function subtotal_cart() {
 	
 	global $the_session_id;
 	
+	$residential_cost=0;
+	$liftgate_cost=0;
+	
 	$sql="SELECT SUM(feature_cost) as total_feature, SUM(product_cost) as total_product , SUM(door_cost) as total_door FROM cart where session_id='$the_session_id'";
 	$query=$cxn->query($sql);
 	$result_array=array();
@@ -144,6 +147,8 @@ function subtotal_cart() {
 		$total_product_cost=$cost['total_product'];
 		$total_door_cost=$cost['total_door'];
 	}
+	
+	//echo $total_product_cost;
 	
 	$sql_2="select  product_cost from cart where session_id='$the_session_id' AND product_id='392'";
 	if(!$query_2=$cxn->query($sql_2))
@@ -160,18 +165,37 @@ function subtotal_cart() {
 	}
 	$count_2=mysqli_num_rows($query_2);
 	//echo $count_2;
-	if($count_2==0)
-	{
-		$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost;
-	}
-	else
+	if($count_2>0)
 	{
 		$query_2=$cxn->query($sql_2);
 		$row_2=$query_2->fetch_object();
 		$residential_cost=$row_2->product_cost;
-		$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost-$residential_cost;		
 	}
 	
+	$sql_3="select  product_cost from cart where session_id='$the_session_id' AND product_id='393'";
+	if(!$query_3=$cxn->query($sql_3))
+	{
+		$err='your course list didn\'t happen because: '
+		.'ERRNO: '
+		.$cxn->errno
+		.' ERROR: '
+		.$cxn->error
+		.' for this query: '
+		.$query_3
+		.PHP_EOL;
+		trigger_error($err, E_USER_WARNING);
+	}
+	$count_3=mysqli_num_rows($query_3);
+	//echo $count_3;
+	if($count_3>0)
+	{
+		$query_3=$cxn->query($sql_3);
+		$row_3=$query_3->fetch_object();
+		$liftgate_cost=$row_3->product_cost;
+	}
+	
+	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost-$residential_cost - $liftgate_cost;		
+
 	return $total_thus_far;
 	
 }
@@ -257,10 +281,52 @@ function total_cart() {
 		$total_product_cost=$cost['total_product'];
 		$total_door_cost=$cost['total_door'];
 	}
-	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost;
+	
+	
+	//echo $total_product_cost;
+	//you need to find out if there's any shipping costs that have been calculated
+	
+	$the_shipping_cost=0;
+	
+	 $sql_1="select id from fedex where session_id='$the_session_id'";
+	 $query_1=$cxn->query($sql_1);
+	$count_1=$query_1->num_rows;
+	
+	if($count_1>0)
+	{
+		$sql_2="select sum(shipping) as total_shipping from fedex where session_id='$the_session_id'";
+		$query_2=$cxn->query($sql_2);
+		$row_2=$query_2->fetch_assoc();
+	
+		$the_shipping_cost=$row_2['total_shipping'];
+	}
+	
+	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost + $the_shipping_cost;
 	
 	return $total_thus_far;
 	
+}
+
+function totalShipping($the_session_id) {
+	
+	$the_shipping_cost=0;
+	
+	global $cxn;
+	
+	 $sql_1="select id from fedex where session_id='$the_session_id'";
+	 $query_1=$cxn->query($sql_1);
+	$count_1=$query_1->num_rows;
+	
+	if($count_1>0)
+	{
+		$sql="select sum(shipping) as total_shipping from fedex where session_id='$the_session_id'";
+		$query=$cxn->query($sql);
+		$row=$query->fetch_assoc();
+	
+		$the_shipping_cost=$row['total_shipping'];
+	}
+	
+	return $the_shipping_cost;
 }
 
 $residential_row=0;
@@ -300,7 +366,7 @@ $lift_row=0;
 		if($the_res_count==0)
 		{
 		?>
-			<td colspan="3" class="subtotal_cell"><input type="checkbox" name="residential" value="Y" style="margin-top:5px;">&nbsp;add Residential Delivery ($<?php $res_price=current_shipping("392"); echo number_format($res_price, 2);?>)&nbsp;</td>
+			<td colspan="3" class="subtotal_cell"><input type="checkbox" name="residential" value="Y" style="margin-top:5px;" id="residential_box" onchange="reminder_resident()">&nbsp;add Residential Delivery ($<?php $res_price=current_shipping("392"); echo number_format($res_price, 2);?>)&nbsp;</td>
 		<?php
 		}
 		else
@@ -326,7 +392,7 @@ $lift_row=0;
 		if($the_lift_count==0)
 		{
 		?>
-		<td colspan="3" class="subtotal_cell"><input type="checkbox" name="liftgate" value="Y">&nbsp;add Liftgate  Charge ($<?php $lift_price=current_shipping("393"); echo number_format($lift_price,2);?>)&nbsp;</td>
+		<td colspan="3" class="subtotal_cell"><input type="checkbox" name="liftgate" value="Y" id="liftgate_box" onchange="reminder()">&nbsp;add Liftgate  Charge ($<?php $lift_price=current_shipping("393"); echo number_format($lift_price,2);?>)&nbsp;</td>
 		<?php
 		}
 		else
@@ -346,9 +412,30 @@ $lift_row=0;
 		}
 		?>
 	</tr>
+	<?php
+	$shipping_charge=totalShipping($the_session_id);
+	if($shipping_charge>0)
+	{
+	?>
+	<tr>
+		<td colspan="2"><b>Shipping:</b></td>
+		<td style="text-align:right; min-width:200px;">$<?php echo number_format($shipping_charge, 2); ?></td>
+	</tr>
+	<?php
+	}
+	else
+	{
+	?>
+	<tr>
+		<td colspan="2"><b>Shipping:</b></td>
+		<td style="text-align:right; min-width:200px;">yet to be calculated...</td>
+	</tr>
+	<?php
+	}
+	?>
 	<tr>
 		<td colspan="2"><b>Grand Total:</b></td>
-		<td style="text-align:right;">$<?php echo number_format($the_total-$the_discount,2);?></td>
+		<td style="text-align:right;">$<?php echo number_format($the_total-$the_discount,2);?>hey</td>
 	</tr>
 	<tr>
 		<td colspan="3"><hr></td>
@@ -359,9 +446,23 @@ $lift_row=0;
 </table></form>
 
 <script>
-$("#michelleForm").submit(function(e) {// use the correct ID
-e.preventDefault();// we don\'t want to submit anything until we\'ve first determined that the user\'s not get ready to duplicate something that\'s already in the database.
 
+function reminder() {
+  if (document.getElementById('liftgate_box').checked) {
+   alert("Be sure to click \"update cart\" so the\nLiftgate Charge is appropriately added.\n\nThanks!");
+   return false;
+   }
+}
+
+function reminder_resident() {
+  if (document.getElementById('residential_box').checked) {
+   alert("Be sure to click \"update cart\" so the\nResidential Delivery charge is appropriately added.\n\nThanks!");
+   return false;
+   }
+}
+
+$("#michelleForm").submit(function(e) {// use the correct ID
+e.preventDefault();// we don\'t want to submit anything until we\'ve first determined that the user\'s not get ready to duplicate something that\'s already in the databas
 var devTest = $( "#michelleForm" ).serialize(); //packaging all of our submitted variables into one, neat little var
 //alert("Develop test, URL prams = "+devTest);// publish a little alert box that lets you see your posted variables
 $.post( "checkout_total_submit.php", devTest) // posting all of our variables to ajax.php 

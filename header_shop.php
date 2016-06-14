@@ -194,7 +194,21 @@ or die ("couldn't connect to server");
 	<div class="social_icons">
 		<a href="http://facebook.com" target="_blank"><div class="facebook_link"></div></a>
 		<div class="blog_link"></div>
-		<div class="store_link"></div>
+		<?php
+		if(isset($session_id)&&$session_id<>"")
+		{
+		?>
+			<a href="checkout.php?session_id=<?php echo $session_id;?>"><div class="store_link"></div></a>
+		<?php
+		}
+		else
+		{
+		?>
+			<a href="no_shopping_cart.php"><div class="store_link"></div></a>
+		<?php
+		}
+		?>
+		<a href="#"><div class="avatar_link"></div></a>
 	</div>
 	<div class="no_cam_sign"></div>
 	<!-- this is your navbar -->

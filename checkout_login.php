@@ -169,7 +169,7 @@ function cart_link($the_session_id) {
 	
 }
 
-function subtotal_cart() {
+function total_cart() {
 	
 	global $cxn;
 	
@@ -190,32 +190,28 @@ function subtotal_cart() {
 		$total_door_cost=$cost['total_door'];
 	}
 	
-	$sql_2="select  product_cost from cart where session_id='$the_session_id' AND product_id='392'";
-	if(!$query_2=$cxn->query($sql_2))
+	//echo $total_product_cost;
+	//you need to find out if there's any shipping costs that have been calculated
+	
+	$the_shipping_cost=0;
+	
+	 $sql_1="select id from fedex where session_id='$the_session_id'";
+	 $query_1=$cxn->query($sql_1);
+	$count_1=$query_1->num_rows;
+	
+	if($count_1>0)
 	{
-		$err='your course list didn\'t happen because: '
-		.'ERRNO: '
-		.$cxn->errno
-		.' ERROR: '
-		.$cxn->error
-		.' for this query: '
-		.$query_2
-		.PHP_EOL;
-		trigger_error($err, E_USER_WARNING);
-	}
-	$count_2=mysqli_num_rows($query_2);
-	//echo $count_2;
-	if($count_2==0)
-	{
-		$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost;
-	}
-	else
-	{
+		//echo "here we come";
+		$sql_2="select sum(shipping) as total_shipping from fedex where session_id='$the_session_id'";
 		$query_2=$cxn->query($sql_2);
-		$row_2=$query_2->fetch_object();
-		$residential_cost=$row_2->product_cost;
-		$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost-$residential_cost;		
+		$row_2=$query_2->fetch_array();
+	
+		$the_shipping_cost=$row_2['total_shipping'];
+		//echo $the_shipping_cost;
 	}
+	//echo $the_shipping_cost;
+	
+	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost+$the_shipping_cost;
 	
 	return $total_thus_far;
 	
@@ -281,11 +277,14 @@ function lift_check() {
 	return $count;
 }
 
-function total_cart() {
+function subtotal_cart() {
 	
 	global $cxn;
 	
 	global $the_session_id;
+	
+	$residential_cost=0;
+	$liftgate_cost=0;
 	
 	$sql="SELECT SUM(feature_cost) as total_feature, SUM(product_cost) as total_product , SUM(door_cost) as total_door FROM cart where session_id='$the_session_id'";
 	$query=$cxn->query($sql);
@@ -301,8 +300,55 @@ function total_cart() {
 		$total_product_cost=$cost['total_product'];
 		$total_door_cost=$cost['total_door'];
 	}
-	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost;
 	
+	//echo $total_product_cost;
+	
+	$sql_2="select  product_cost from cart where session_id='$the_session_id' AND product_id='392'";
+	if(!$query_2=$cxn->query($sql_2))
+	{
+		$err='your course list didn\'t happen because: '
+		.'ERRNO: '
+		.$cxn->errno
+		.' ERROR: '
+		.$cxn->error
+		.' for this query: '
+		.$query_2
+		.PHP_EOL;
+		trigger_error($err, E_USER_WARNING);
+	}
+	$count_2=mysqli_num_rows($query_2);
+	//echo $count_2;
+	if($count_2>0)
+	{
+		$query_2=$cxn->query($sql_2);
+		$row_2=$query_2->fetch_object();
+		$residential_cost=$row_2->product_cost;
+	}
+	
+	$sql_3="select  product_cost from cart where session_id='$the_session_id' AND product_id='393'";
+	if(!$query_3=$cxn->query($sql_3))
+	{
+		$err='your course list didn\'t happen because: '
+		.'ERRNO: '
+		.$cxn->errno
+		.' ERROR: '
+		.$cxn->error
+		.' for this query: '
+		.$query_3
+		.PHP_EOL;
+		trigger_error($err, E_USER_WARNING);
+	}
+	$count_3=mysqli_num_rows($query_3);
+	//echo $count_3;
+	if($count_3>0)
+	{
+		$query_3=$cxn->query($sql_3);
+		$row_3=$query_3->fetch_object();
+		$liftgate_cost=$row_3->product_cost;
+	}
+	
+	$total_thus_far= $total_feature_cost + $total_product_cost + $total_door_cost-$residential_cost - $liftgate_cost;		
+
 	return $total_thus_far;
 	
 }
@@ -345,6 +391,46 @@ function totalShipping($the_session_id) {
 	
 	return $the_shipping_cost;
 }
+
+function check_login() {
+	
+	global $cxn;
+	
+	$email=trim($_POST['login_email']);
+	$password=trim($_POST['login_password']);
+	
+	$sql="select * from customers where email='$email' and password='$password'";
+	$query=$cxn->query($sql);
+	$count=$query->num_rows;
+	if($count>0)
+	{
+	$result_array=array();
+		
+	while ($row=$query->fetch_array())
+		{
+			$result_array[]=$row;
+		}
+		$the_array= $result_array;
+	}
+	else
+	{
+		$the_array="";
+	}
+	return $the_array;
+}	
+
+$successful_login=0;
+
+if(isset($_POST['login_password'])&&$_POST['login_password']<>"")
+{
+	$big_test=check_login();
+	if (!empty($big_test))
+	{
+	$successful_login=1;
+	}
+}
+
+//echo $successful_login;
 
 $residential_row=0;
 $lift_row=0;
@@ -476,7 +562,6 @@ $lift_row=0;
 					</tr>
 					<tr>
 						<td colspan="3">
-							<form method="Post" id="residentialForm">
 							<!--<form action="checkout_total_submit.php" method="Post">-->
 							<table class="subtotal" border="0">
 								<tr>
@@ -554,7 +639,7 @@ $lift_row=0;
 								?>
 								<tr>
 									<td colspan="2"><b>Grand Total:</b></td>
-									<td style="text-align:right;">$<?php echo number_format($the_total-$the_discount+$shipping_charge,2);?></td>
+									<td style="text-align:right;">$<?php echo number_format($the_total-$the_discount,2);?></td>
 								</tr>
 								<tr>
 									<td colspan="3"><hr></td>
@@ -562,48 +647,100 @@ $lift_row=0;
 								<tr>
 									<td colspan="3">
 									If you're a returning customer, please login and all of your contact and shipping information will automatically populate below. If not, please fill in all of the fields and click on "proceed to checkout."<br>
-									<br><form method="Post" id="login">
+									<br><form action="checkout_login.php?session_id=<?php echo $_GET['session_id'];?>#login_form" method="Post" name="login_form">
 										<table style="margin:auto; width:400px; height:auto; border:1px solid #cccccc; border-radius:10px;">
 											<tr>
-												<td style="border-top-left-radius:10px; padding-left:5px; padding-top:5px;">email:  &nbsp;<input type="text" style="width:135px; height:25px; border:1px solid #cccccc;" name="login_email"></td>
-												<td style="border-top-right-radius:10px; padding-right:5px; padding-top:5px;">password:&nbsp;<input type="password" style="width:135px; height:25px; border:1px solid #cccccc;" name="password"></td>
+												<td style="border-top-left-radius:10px; padding-left:5px; padding-top:5px;"><a name="login_form" style="text_decoration:none; color:#000000;">email</a>:  &nbsp;<input type="text" style="width:135px; height:25px; border:1px solid #cccccc;" name="login_email"></td>
+												<td style="border-top-right-radius:10px; padding-right:5px; padding-top:5px;">password:&nbsp;<input type="password" style="width:135px; height:25px; border:1px solid #cccccc;" name="login_password"></td>
 											</tr>
 											<tr>
 												<td colspan="2" style="border-bottom-left-radius:10px; border-bottom-right-radius:10px; text-align:center;"><input type="image" src="images/long_login.png"></td>
 											</tr>
-										</table>
+										</table></form>
 									</td>
+								</tr>
 								<tr>
-									<td colspan="3"><br>
-										<table style="width:100%;" border="0">
+									<td colspan="3" style="color:red; font-weight:bold; text-align:center;">
+									<?php
+									if(isset($_POST['login_password'])&&$_POST['login_password']<>"")
+									{
+										if($successful_login==0)
+										{
+										?>
+										Sorry, but your login was incorrect. Either try again, or click here to recover your login credentials.
+										<?php
+										}
+										else
+										{
+											//here's where you're going to grab all of your data from the customer table
+											foreach($big_test as $big)
+											{
+												$the_shipping_first_name=stripslashes($big['first_name']);
+												$the_shipping_last_name=stripslashes($big['last_name']);
+												$the_shipping_street_name_one=stripslashes($big['street_one']);
+												$the_shipping_street_name_two=stripslashes($big['street_two']);
+												$the_shipping_city=stripslashes($big['city']);
+												$the_shipping_state=stripslashes($big['state']);
+												$the_shipping_zip=stripslashes($big['zip']);
+												$the_cell=stripslashes($big['cell_phone']);
+												$the_first_name=stripslashes($big['first_name']);
+												$the_last_name=stripslashes($big['last_name']);
+												$the_street_name_one=stripslashes($big['street_one']);
+												$the_street_name_two=stripslashes($big['street_two']);
+												$the_city=stripslashes($big['city']);
+												$the_state=stripslashes($big['state']);
+												$the_zip=stripslashes($big['zip']);
+												$the_email=stripslashes($big['email']);
+												$the_password=stripslashes($big['password']);
+											}
+										}
+									}
+									else
+									{
+										echo "&nbsp;<br>";
+									}
+									?>											
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<table style="width:100%;" border="0"><form action="checkout_post.php?session_id=<?php echo $_GET['session_id'];?>" method="Post" name="bigForm" onsubmit="return validateForm()">
 											<tr>
 												<td colspan="2"><b>shipping information</b></td>
 											</tr>
 											<tr>
 												<td>first name</td>
-												<td><input type="text" size="55" name="first_name" id="fname"></td>
+												<td><input type="text" size="55" name="first_name" id="fname" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_first_name;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>last name</td>
-												<td><input type="text" size="55" name="last_name" id="lname"></td>
+												<td><input type="text" size="55" name="last_name" id="lname" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_last_name;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>street address 1</td>
-												<td><input type="text" size="55" name="street_address_one" id="street1"></td>
+												<td><input type="text" size="55" name="street_address_one" id="street1" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_street_name_one;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>street address 2</td>
-												<td><input type="text" size="55" name="street_address_two" id="street2"></td>
+												<td><input type="text" size="55" name="street_address_two" id="street2" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_street_name_two;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>city</td>
-												<td><input type="text" size="55" name="city" id="city"></td>
+												<td><input type="text" size="55" name="city" id="city" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_city;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>state</td>
 												<td><select name="state" style="width:379px;" id="state">
+												<?php if(isset($_POST['login_password'])&&$successful_login>0)	{?>
+												<option selected><?php echo $the_shipping_state;?></option>
+												<?php
+												}
+												else
+												{
+												?>
 												<option></option>
-												<?php 
+												<?php
+												} 
 												$select_state=state_list();
 												foreach($select_state as $state)
 												{
@@ -617,40 +754,48 @@ $lift_row=0;
 											</tr>
 											<tr>
 												<td>zip code</td>
-												<td><input type="text" size="55" name="zip" id="zip"></td>
+												<td><input type="text" size="55" name="zip" id="zip" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_shipping_zip;?><?php }?>"></td>
 											</tr>
 												<tr>
 												<td>cell phone</td>
-												<td><input type="text" size="55" name="cell_phone"></td>
+												<td><input type="text" size="55" name="cell_phone" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_cell;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><b>billing information</b> &nbsp; if billing info is the same as shipping, check here...&nbsp;<input type="checkbox" id="bill_same"></td>
 											</tr>
 											<tr>
 												<td>first name</td>
-												<td><input type="text" size="55" name="billing_first_name" id="bill_fname"></td>
+												<td><input type="text" size="55" name="billing_first_name" id="bill_fname" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_first_name;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>last name</td>
-												<td><input type="text" size="55" name="billing_last_name" id="bill_lname"></td>
+												<td><input type="text" size="55" name="billing_last_name" id="bill_lname" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_last_name;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>street address 1</td>
-												<td><input type="text" size="55" name="billing_street_address_one" id="bill_street1"></td>
+												<td><input type="text" size="55" name="billing_street_address_one" id="bill_street1" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_street_name_one;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>street address 2</td>
-												<td><input type="text" size="55" name="billing_street_address_two" id="bill_street2"></td>
+												<td><input type="text" size="55" name="billing_street_address_two" id="bill_street2" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_street_name_two;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>city</td>
-												<td><input type="text" size="55" name="billing_city" id="bill_city"></td>
+												<td><input type="text" size="55" name="billing_city" id="bill_city" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_city;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>state</td>
 												<td><select name="billing_state" style="width:379px;" id="bill_state">
+												<?php if(isset($_POST['login_password'])&&$successful_login>0)	{?>
+												<option selected><?php echo $the_state;?></option>
+												<?php
+												}
+												else
+												{
+												?>
 												<option></option>
-												<?php 
+												<?php
+												} 
 												$select_state_billing=state_list();
 												foreach($select_state_billing as $state_billing)
 												{
@@ -664,28 +809,28 @@ $lift_row=0;
 											</tr>
 											<tr>
 												<td>zip code</td>
-												<td><input type="text" size="55" name="billing_zip" id="bill_zip"></td>
+												<td><input type="text" size="55" name="billing_zip" id="bill_zip" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_zip;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><b>login information</b></td>
 											</tr>
 											<tr>
 												<td>email address</td>
-												<td><input type="text" size="55" name="email_address"></td>
+												<td><input type="text" size="55" name="email_address" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_email;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>password</td>
-												<td><input type="text" size="55" name="password"></td>
+												<td><input type="password" size="55" name="password" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_password;?><?php }?>"></td>
 											</tr>
 											<tr>
 												<td>confirm password</td>
-												<td><input type="text" size="55" name="confirm_password"></td>
+												<td><input type="password" size="55" name="confirm_password" <?php if(isset($_POST['login_password'])&&$successful_login>0)	{?> value="<?php echo $the_password;?><?php }?>"></td>
 											</tr>
 										</table>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3" style="text-align:center; vertical-align:middle;"><br><br><input type="hidden" name="session_id" value="<?php echo $the_session_id;?>"><input type="hidden" name="residential_price" value="<?php echo $res_price;?>"><input type="hidden" name="liftgate_price" value="<?php echo $lift_price;?>"><a href="checkout_login.php?session_id=<?php echo $the_session_id;?>"><img src="images/proceed_checkout.jpg" border="0" style="width:185px; margin-top:-36px;"></a></td>
+									<td colspan="3" style="text-align:center; vertical-align:middle;"><br><br><input type="hidden" name="session_id" value="<?php echo $the_session_id;?>"><input type="hidden" name="residential_price" value="<?php echo $res_price;?>"><input type="hidden" name="liftgate_price" value="<?php echo $lift_price;?>"><input type="hidden" name="session_id" value="<?php echo $the_session_id;?>"><input type="image" src="images/proceed_checkout.jpg" style="width:185px; margin-top:-36px;"></td>
 								</tr>
 							</table></form>
 						
@@ -740,6 +885,97 @@ $lift_row=0;
 		});
 	});
 	
+	function validateForm() {
+	var a = document.forms["bigForm"]["password"].value;
+	var b = document.forms["bigForm"]["confirm_password"].value;
+	var c=document.forms["bigForm"]["fname"].value; 
+	var d=document.forms["bigForm"]["lname"].value;
+	var e=document.forms["bigForm"]["street1"].value;
+	var f=document.forms["bigForm"]["city"].value;
+	var g=document.forms["bigForm"]["state"].value;
+	var h=document.forms["bigForm"]["zip"].value;
+	var i=document.forms["bigForm"]["bill_fname"].value;
+	var j=document.forms["bigForm"]["bill_lname"].value;
+	var k=document.forms["bigForm"]["bill_street1"].value;
+	var l=document.forms["bigForm"]["bill_state"].value;
+	var m=document.forms["bigForm"]["bill_zip"].value;
+	var n=document.forms["bigForm"]["email_address"].value;
+	
+	 if (c == null || c == "") {
+			 alert("please include your first name");
+			 return false;
+		 }
+		 
+		 if (d == null || d == "") {
+			 alert("please include your last name");
+			 return false;
+		 }
+		 
+		 if (e == null || e == "") {
+			 alert("please include your street address");
+			 return false;
+		 }
+		 
+		 if (f == null || f == "") {
+			 alert("please include your city");
+			 return false;
+		 }
+		 
+		 if (g == null || g == "") {
+			 alert("please include your state");
+			 return false;
+		 }
+		 
+		 if (h == null || h == "") {
+			 alert("please include your zip");
+			 return false;
+		 }
+		 
+		  if (i == null || i == "") {
+			 alert("please include your billing first name");
+			 return false;
+		 }
+		 
+		  if (j == null || j == "") {
+			 alert("please include your billing last name");
+			 return false;
+		 }
+		 
+		  if (k == null || k == "") {
+			 alert("please include your billing street address");
+			 return false;
+		 }
+		 
+		  if (l == null || l == "") {
+			 alert("please include your billing state");
+			 return false;
+		 }
+		 
+		  if (m == null || m == "") {
+			 alert("please include your billing zip code");
+			 return false;
+		 }
+		 
+		  if (n == null || n == "") {
+			 alert("please include your email address");
+			 return false;
+		 }
+
+		 if (a == null || a == "") {
+			 alert("please include a password");
+			 return false;
+		 }
+		 if (b == null || b == "") {
+			 alert("please confirm your password");
+			 return false;
+		 }
+		  if (a!==b) {
+			 alert("please make sure your password and your confirmed password match");
+			 return false;
+		 }
+		 
+	 }
+	
 	$("#shippingForm").submit(function(e) {
 	cache:false,
 	e.preventDefault();
@@ -761,6 +997,28 @@ $lift_row=0;
 			}
 		});
 	});
+	
+	$("#loginForm").submit(function(e) {
+	cache:false,
+	e.preventDefault();
+	//$('#login_attempt').html("calculating your shipping...");
+	var devTest = $( "#loginForm").serialize(); 
+	
+	alert("Develop test, URL prams = "+devTest);// publish a little alert box that lets you see your posted variables
+	
+	$.post( "login_attempt.php", devTest) 
+		.done(function(Drumstick) { 
+			if (Drumstick.charAt(0) == "E") 
+			{
+				alert("ERROR - The submarket has been entered before");
+			}
+			else 
+			{	
+				print 
+			}
+		});
+	});
+	
 	</script>
 	
 	</body>

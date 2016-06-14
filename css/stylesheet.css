@@ -209,11 +209,11 @@ height: 20px;
 }
 
 .social_icons {
-	width:145px;
+	width:192px;
 	height:45px;
 	float:right;
 	margin-top:2px;
-	background-image:url(../images/social_icons.jpg);
+	background-image:url(../images/social_icons_new.jpg);
 	background-repeat:no-repeat;
 }
 
@@ -239,6 +239,14 @@ height: 20px;
 	display:inline-block;
 	margin-top:6px;
 	margin-left:6px;
+}
+
+.avatar_link {
+	width:37px;
+	height:37px;
+	display:inline-block;
+	margin-top:6px;
+	margin-left:4px;
 }
 
 .no_cam_sign {

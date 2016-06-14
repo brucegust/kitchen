@@ -295,7 +295,7 @@ function cart_link($the_session_id) {
 						<td colspan="3"><hr></td>
 					</tr>
 					<tr>
-						<td id="checkout_subtotal" colspan="3"></td><!--this is where you're putting your liftgate and residential options-->
+						<td id="checkout_subtotal" colspan="3"></td><!--this is where you're putting your liftgate and residential options ,it's your checkout_total.php page-->
 					</tr>
 				</table>
 					
